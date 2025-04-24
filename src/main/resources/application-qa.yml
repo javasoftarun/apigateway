@@ -1,0 +1,22 @@
+spring:
+  web:
+    resources:
+      add-mappings: false
+
+  cloud:
+    gateway:
+      routes:
+        - id: userservice-api
+          uri: https://userservice-a0nr.onrender.com
+          predicates:
+            - Path=/api/users/**
+
+        - id: common-service
+          uri: https://commonservice.onrender.com
+          predicates:
+            - Path=/api/common/**
+
+        - id: carandbooking-service
+          uri: https://carbookingservice.onrender.com
+          predicates:
+            - Path=/api/cab/**

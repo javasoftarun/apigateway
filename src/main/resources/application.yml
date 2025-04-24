@@ -1,0 +1,10 @@
+spring:
+  profiles:
+    active: qa
+
+server:
+  port: 8888
+
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG

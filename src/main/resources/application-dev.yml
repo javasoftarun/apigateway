@@ -1,0 +1,22 @@
+spring:
+  web:
+    resources:
+      add-mappings: false
+
+  cloud:
+    gateway:
+      routes:
+        - id: userservice-api
+          uri: http://localhost:8083
+          predicates:
+            - Path=/api/users/**
+
+        - id: common-service
+          uri: http://localhost:8081
+          predicates:
+            - Path=/api/common/**
+
+        - id: carandbooking-service
+          uri: http://localhost:8082
+          predicates:
+            - Path=/api/cab/**
